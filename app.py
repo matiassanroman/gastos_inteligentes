@@ -3,6 +3,8 @@
 import logging
 import sys
 
+from datetime import date, timedelta
+
 from utils.classifier import classify_expenses
 from utils.retrieve_emails import retrieve_expenses
 from utils.sheets import append_expenses
@@ -23,7 +25,10 @@ def main():
     logger = logging.getLogger(__name__)
 
     logger.info("Starting expense ingestion pipeline...")
-    expenses = retrieve_expenses()
+    since_date = (date.today() - timedelta(days=1)).strftime("%d-%b-%Y")
+    next_date = (date.today()).strftime("%d-%b-%Y")
+
+    expenses = retrieve_expenses(since_date, next_date)
     if not expenses:
         logger.warning("No expenses retrieved. Exiting.")
         return

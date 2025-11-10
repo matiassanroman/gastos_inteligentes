@@ -33,7 +33,7 @@ def _get_text_from_message(msg) -> str:
 
 
 def retrieve_expenses(
-    from_filter: str = SEARCH_FROM, subject_filter: str = SEARCH_SUBJECT
+    since_date: str, next_date: str, from_filter: str = SEARCH_FROM, subject_filter: str = SEARCH_SUBJECT
 ) -> List[dict]:
     """
     Connects to IMAP, searches emails and returns a list of expense dicts.
@@ -52,7 +52,8 @@ def retrieve_expenses(
     try:
         imap.select("inbox")
         # Using exact FROM and SUBJECT filters
-        criteria = f'(FROM "{from_filter}" SUBJECT "{subject_filter}")'
+        #criteria = f'(FROM "{from_filter}" SUBJECT "{subject_filter} SINCE "{target_date}")'
+        criteria = f'FROM "{from_filter}" SUBJECT "{subject_filter}" SINCE {since_date} BEFORE {next_date}'
         status, data = imap.search(None, criteria)
         if status != "OK":
             logger.error("IMAP search failed: %s", status)
