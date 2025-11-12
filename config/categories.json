@@ -1,5 +1,31 @@
 {
-  "supermercado": ["mercadona", "cash fresh", "carrefour"],
-  "transporte": ["metro", "empresa malague", "renfe"],
-  "diversion": ["cafe", "pizzeria"]
+  "transporte": [
+    "metro", 
+    "empresa malague", 
+    "renfe", 
+    "estanco suarez"
+  ],
+  "cuotas": ["cuota fraccionar compra de"],
+  "peluqueria": ["barberia"],
+  "comida afuera": [
+    "supermercado",
+    "cocina",
+    "mercadona",
+    "cash fresh",
+    "carrefour",
+    "xpress cafe",
+    "como en casa",
+    "alimentacion",
+    "carniceria",
+    "cafeteria",
+    "cafe",
+    "standard coffee",
+    "pez lola",
+    "dominos",
+    "pizza",
+    "felica deli caf",
+    "la canasta",
+    "dlunch",
+    "supeco rafaela"
+  ]
 }
